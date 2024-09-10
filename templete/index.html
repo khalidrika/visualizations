@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gluten&display=swap" rel="stylesheet">
+    <title>Groupie Tracker</title>
+</head>
+<body>
+    <header>
+        <div class="logo" onclick="location.reload()">Groupie Tracker</div>
+    </header>
+    <div class="container">
+        <div class="top-section">
+            <h1 class="title">Welcome To Groupie-Tracker! 🎵🎶</h1>
+            <button class="explore-button" onclick="scrollToArtist()">Explore</button>
+        </div>
+        <div class="bottom-section">
+            <p class="title artists-title">ARTISTS</p>
+            <div class="artist-grid">
+                {{range .}}
+                    {{if .Id }}
+                        <div class="artist-item">
+                            <div class="box">
+                                <div class="content">
+                                    <img src="{{.Image}}" alt="{{.Name}}">
+                                    <h2>{{.Name}}</h2>
+                                    <a href="/artist/{{.Id}}">see artist</a>
+                                </div>
+                            </div>
+                        </div>
+                    {{end}}
+                {{end}}
+            </div>
+        </div>
+    </div>
+    <script>
+        function scrollToArtist() {
+            document.querySelector('.bottom-section').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>@aboutamgh 

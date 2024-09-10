@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gluten&display=swap" rel="stylesheet">
+    <title>Groupie Tracker - Artist Information</title>
+</head>
+<body>
+    <div class="container">
+        <h1><strong>General Information about the Artist</strong></h1>
+        <div class="artist-card">
+            <img src="{{.Information.Image}}" alt="{{.Information.Name}}">
+            <h2>{{.Information.Name}}</h2>
+            <p><strong>First Album:</strong> {{.Information.FirstAlbum}}</p>
+            <p><strong>Creation Date:</strong> {{.Information.CreationDate}}</p>
+            <p><strong>Members:</strong></p>
+            <ul>
+                {{range .Information.Members}}
+                    <li>{{.}}</li>
+                {{end}}
+            </ul>
+
+            <section class="info-section">
+                <h2>Locations:</h2>
+                <ul>
+                    {{range .Location.Locations}}
+                        <li>{{.}}</li>
+                    {{end}}
+                </ul>
+            </section>
+
+            <section class="info-section">
+                <h2>Concert Dates:</h2>
+                <ul>
+                    {{range .Dates.Dates}}
+                        <li>{{.}}</li>
+                    {{end}}
+                </ul>
+            </section>
+
+            <section class="info-section">
+                <h2>Date and Location Relations:</h2>
+                <ul>
+                    {{range $date, $location := .Rolation.DatesLocations}}
+                        <li>{{ $date }} - {{range $location }}{{.}} {{end}}</li>
+                    {{end}}
+                </ul>
+            </section>
+        </div>
+        <a href="/" class="go-back-btn">Go Back</a>
+    </div>
+</body>
+</html>
