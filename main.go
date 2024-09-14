@@ -11,6 +11,7 @@ import (
 func main() {
 	http.HandleFunc("/", groupie.HomeHandler)
 	http.HandleFunc("/artist/", groupie.ArtistHandler)
+	// now handle
 	http.HandleFunc("/style/", groupie.StyleHandler)
 
 	fmt.Println("Server starting on http://localhost:8085")
